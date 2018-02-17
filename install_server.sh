@@ -21,15 +21,21 @@ if [ -e ~/.ssh/authorized_keys ]; then
   chgrp -R $1 /home/$1/.ssh
 fi
 
-
-
 ### Update sources
 sudo apt-get update
 sudo apt-get full-upgrade
 
 ### Install LAMP
-sudo apt-get install lamp-server^ phpmyadmin
+sudo apt-get install lamp-server^ phpmyadmin php-mbstring php-gettext
+sudo phpenmod mcrypt
+sudo phpenmod mbstring
 sudo service apache2 restart
+
+sudo chmod -R 744 /var/log/apache2
+
+### Create info.php for testing
+echo "<?php phpinfo(); ?>" > /var/www/html/info.php
+chmod 775 /var/www/html/info.php
 
 ### Enable Apache modules
 sudo a2enmod proxy
