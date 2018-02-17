@@ -53,11 +53,11 @@ bash install_lamp/install_lamp.sh <username>
 
 ## To-Do
 
--[ ] Explain how each part works
--[ ] Add switches. For example:
-  -[ ] Adding regular user
-  -[ ] Creating www group
-  -[ ] Using ssh key or password auth
-  -[ ] Including other stuff like node
-  -[ ] ...
--[ ] Check into GitHub https vs. ssh thing.
+- [ ] Explain how each part works
+- [ ] Add switches. For example:
+  - [ ] Adding regular user
+  - [ ] Creating www group
+  - [ ] Using ssh key or password auth
+  - [ ] Including other stuff like node
+  - [ ] ...
+- [ ] Check into GitHub https vs. ssh thing.
