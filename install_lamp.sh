@@ -22,11 +22,11 @@ if [ -e ~/.ssh/authorized_keys ]; then
 fi
 
 ### Update sources
-sudo apt-get update
-sudo apt-get full-upgrade
+sudo apt-get update -y
+sudo apt-get full-upgrade -y
 
 ### Install LAMP
-sudo apt-get install lamp-server^ phpmyadmin php-mbstring php-gettext
+sudo apt-get install lamp-server^ phpmyadmin php-mbstring php-gettext -y
 sudo phpenmod mcrypt
 sudo phpenmod mbstring
 sudo service apache2 restart
@@ -48,15 +48,15 @@ sudo service apache2 restart
 
 ### Create web environment
 sudo groupadd www
-sudo usermod -aG www $1:
+sudo usermod -aG www $1
 sudo chmod -R 775 /var/www
 sudo chgrp -R www /var/www
 
 ### Desktop stuff
-sudo apt-get install openbox vnc4server
+sudo apt-get install openbox vnc4server -y
 
 ### Node
-sudo apt-get install nodejs npm
+sudo apt-get install nodejs npm -y
 
 ### Set up user environment (not yet implemented)
 # git clone <my-dot-files>
