@@ -24,8 +24,8 @@ fi
 
 
 ### Update sources
-apt-get update
-apt-get full-upgrade
+sudo apt-get update
+sudo apt-get full-upgrade
 
 ### Install LAMP
 sudo apt-get install lamp-server^ phpmyadmin
