@@ -1,3 +1,6 @@
+#!/bin/bash
+
+### Check for user name
 if [ $1=="" ];then
 	echo "ERROR: No username provided."
 	echo "USAGE: install_lamp.sh USERNAME"
