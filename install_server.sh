@@ -1,6 +1,7 @@
 
 ### Create User
 sudo adduser $1
+sudo usermod -aG sudo $1
 
 ### Update sources
 apt-get update
