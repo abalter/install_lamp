@@ -27,9 +27,11 @@ if [ -e ~/.ssh/authorized_keys ]; then
   chgrp -R $1 /home/$1/.ssh
 fi
 
+
 ### Update sources
 sudo apt-get update -y
 sudo apt-get full-upgrade -y
+
 
 ### Install LAMP
 sudo apt-get install lamp-server^ phpmyadmin php-mbstring php-gettext -y
@@ -37,13 +39,29 @@ sudo phpenmod mcrypt
 sudo phpenmod mbstring
 sudo service apache2 restart
 
+
+### Append apache2.conf
+ip_address=$(hostname -I | sed -E 's/([0-9\.]+) .*/\1/')
+conf_text="
+
+# Include phpmyadmin configuration files to access it from browser 
+Include /etc/phpmyadmin/apache.conf
+
+ServerName $ip_address
+
+"
+sudo bash -c 'echo "conf_text" >> /etc/apache2/apache.conf'
+
+
 ### Enable viewing of logs
 sudo chmod -R 755 /var/log/apache2
 sudo chmod -R 644 /var/log/apache2/*
 
+
 ### Create info.php for testing
 echo "<?php phpinfo(); ?>" > /var/www/html/info.php
 chmod 775 /var/www/html/info.php
+
 
 ### Enable Apache modules
 sudo a2enmod proxy
@@ -52,17 +70,21 @@ sudo a2enmod proxy_balancer
 sudo a2enmod lbmethod_byrequests
 sudo service apache2 restart
 
+
 ### Create web environment
 sudo groupadd www
 sudo usermod -aG www $1
 sudo chmod -R 775 /var/www
 sudo chgrp -R www /var/www
 
+
 ### Desktop stuff
 sudo apt-get install openbox vnc4server -y
 
+
 ### Node
 sudo apt-get install nodejs npm -y
+
 
 ### Set up user environment (not yet implemented)
 # git clone <my-dot-files>
