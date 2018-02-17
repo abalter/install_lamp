@@ -51,7 +51,7 @@ git clone https://github.com/abalter/install_lamp.git
 bash install_lamp/install_lamp.sh <username>
 ```
 
-** To-Do
+## To-Do
 -[ ] Explain how each part works
 -[ ] Add switches. For example:
   -[ ] Adding regular user
