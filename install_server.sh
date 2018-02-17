@@ -31,7 +31,9 @@ sudo phpenmod mcrypt
 sudo phpenmod mbstring
 sudo service apache2 restart
 
-sudo chmod -R 744 /var/log/apache2
+### Enable viewing of logs
+sudo chmod -R 755 /var/log/apache2
+sudo chmod -R 644 /var/log/apache2/*
 
 ### Create info.php for testing
 echo "<?php phpinfo(); ?>" > /var/www/html/info.php
