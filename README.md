@@ -52,6 +52,7 @@ bash install_lamp/install_lamp.sh <username>
 ```
 
 ## To-Do
+
 -[ ] Explain how each part works
 -[ ] Add switches. For example:
   -[ ] Adding regular user
