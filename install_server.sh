@@ -3,12 +3,25 @@
 sudo adduser $1
 sudo usermod -aG sudo $1
 
-if [[ -e ~/AuthorizedKeys ]]; then
-  if [[ !-e ~/.ssh ]]; then 
+if [ -e ~/.ssh/authorized_keys ]; then
+  echo "Current user (probably root) has .ssh/authorized keys"
+  if [ ! -e /home/$1/.ssh ]; then 
+    echo "new user $1 does not have .ssh directory"
+    echo "creating /home/$1/.ssh"
     mkdir /home/$1/.ssh
+  else
+    echo "new user $1 already has .ssh directory"
   fi
-  cp ~/AuthorizedKeys /home/$1/.ssh
+  echo "Copying authorized keys"
+  cp ~/.ssh/authorized_keys /home/$1/.ssh
+  echo "setting permissions"
+  chmod 700 /home/$1/.ssh
+  chmod 644 /home/$1/authorized_keys
+  chown -R $1 /home/$1/.ssh
+  chgrp -R $1 /home/$1/.ssh
 fi
+
+
 
 ### Update sources
 apt-get update
