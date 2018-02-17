@@ -2,6 +2,10 @@
 ### Create User
 sudo adduser $1
 
+### Update sources
+apt-get update
+apt-get full-upgrade
+
 ### Install LAMP
 sudo apt-get install lamp-server^ phpmyadmin
 sudo service apache2 restart
