@@ -19,8 +19,8 @@ sudo service apache2 restart
 
 ### Create web environment
 sudo groupadd www
-sudo usermod -aG www balter
-sudo chmod -R 755 /var/www
+sudo usermod -aG www $1:
+sudo chmod -R 775 /var/www
 sudo chgrp -R www /var/www
 
 ### Desktop stuff
