@@ -29,9 +29,6 @@ sudo apt-get install openbox vnc4server
 ### Node
 sudo apt-get install nodejs npm
 
-### Git
-sudo apt-get install git
-
 ### Set up user environment (not yet implemented)
 # git clone <my-dot-files>
 # bash my-dot-files/setup.sh
