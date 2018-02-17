@@ -3,6 +3,13 @@
 sudo adduser $1
 sudo usermod -aG sudo $1
 
+if [[ -e ~/AuthorizedKeys ]]; then
+  if [[ !-e ~/.ssh ]]; then 
+    mkdir /home/$1/.ssh
+  fi
+  cp ~/AuthorizedKeys /home/$1/.ssh
+fi
+
 ### Update sources
 apt-get update
 apt-get full-upgrade
