@@ -1,3 +1,9 @@
+if [ $1=="" ];then
+	echo "ERROR: No username provided."
+	echo "USAGE: install_lamp.sh USERNAME"
+	exit -1
+fi
+
 
 ### Create User
 sudo adduser $1
