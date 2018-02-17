@@ -7,11 +7,11 @@ if [ $1=="" ];then
 	exit -1
 fi
 
-
 ### Create User
 sudo adduser $1
 sudo usermod -aG sudo $1
 
+### Setup ssh key for new user
 if [ -e ~/.ssh/authorized_keys ]; then
   echo "Current user (probably root) has .ssh/authorized keys"
   if [ ! -e /home/$1/.ssh ]; then 
