@@ -58,7 +58,7 @@ Include /etc/phpmyadmin/apache.conf
 
 ServerName $ip_address
 "
-sudo bash -c "echo '$conf_text' >> /etc/apache2/apache.conf"
+sudo bash -c "echo '$conf_text' >> /etc/apache2/apache2.conf"
 sudo service apache2 restart
 
 ### Enable viewing of logs
