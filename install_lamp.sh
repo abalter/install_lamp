@@ -32,7 +32,7 @@ if [ -e ~/.ssh/authorized_keys ]; then
   cp ~/.ssh/authorized_keys /home/$1/.ssh
   echo "setting permissions"
   chmod 700 /home/$1/.ssh
-  chmod 644 /home/$1/authorized_keys
+  chmod 644 /home/$1/.ssh/authorized_keys
   chown -R $1 /home/$1/.ssh
   chgrp -R $1 /home/$1/.ssh
 fi
