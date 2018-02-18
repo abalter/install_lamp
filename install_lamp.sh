@@ -1,10 +1,17 @@
 #!/bin/bash
 
+
 ### Check for user name
-if [ $1=="" ];then
-	echo "ERROR: No username provided."
-	echo "USAGE: install_lamp.sh USERNAME"
-	exit -1
+if [ ! -z "$1" ]; then
+  echo "not empty"
+  echo $1
+fi
+
+if [ -z "$1" ];then
+  echo $1
+  echo "ERROR: No username provided."
+  echo "USAGE: install_lamp.sh USERNAME"
+  exit -1
 fi
 
 ### Create User
@@ -46,15 +53,13 @@ sudo service apache2 restart
 ### Append apache2.conf
 ip_address=$(hostname -I | sed -E 's/([0-9\.]+) .*/\1/')
 conf_text="
-
 # Include phpmyadmin configuration files to access it from browser 
 Include /etc/phpmyadmin/apache.conf
 
 ServerName $ip_address
-
 "
-sudo bash -c 'echo "conf_text" >> /etc/apache2/apache.conf'
-
+sudo bash -c "echo '$conf_text' >> /etc/apache2/apache.conf"
+sudo service apache2 restart
 
 ### Enable viewing of logs
 sudo chmod -R 755 /var/log/apache2
