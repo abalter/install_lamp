@@ -99,7 +99,7 @@ sudo apt-get install nodejs npm -y
 su $1
 cd /home/$1
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -b
+bash Miniconda3-latest-Linux-x86_64.sh -b -p /home/$1/conda
 
 
 ### Set up user environment (not yet implemented)
