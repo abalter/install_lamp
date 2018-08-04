@@ -80,10 +80,11 @@ sudo service apache2 restart
 
 
 ### Create web environment
-sudo groupadd www
-sudo usermod -aG www $1
+#sudo groupadd www
+sudo usermod -aG www-data $1
+sudo mkdir /var/www/html
 sudo chmod -R 775 /var/www
-sudo chgrp -R www /var/www
+#sudo chgrp -R www /var/www
 
 
 ### Desktop stuff
@@ -92,6 +93,13 @@ sudo apt-get install openbox vnc4server -y
 
 ### Node
 sudo apt-get install nodejs npm -y
+
+
+### Conda
+su $1
+cd /home/$1
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -b
 
 
 ### Set up user environment (not yet implemented)
